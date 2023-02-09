@@ -1,5 +1,24 @@
-name: English
+name: 🇺🇸 English
 help: |
-  <b>This bot</b> allows you to see how Telegram bots can be built.
+  Available commands:
+
+  /start - 🚀 Run a bot
+  /info - 🪄 Bot information
+  /language - 🌎 Change the language
+
+  Admins:
+  @azad740
+  @donaterMILLI
+
+  Developer - @jodev7
 language: Please, select the language.
 language_selected: <b>This bot</b> now speaks English.
+start: |
+  ✋ Hello ${username}
+
+  💥 WELCOME to the official uc service from Бомж Донатер & Глеб!
+  ✅ The cheapest and most reliable uc service is only available from us
+
+  👇 Choose the service you need
+adminka: Admin Dashboard
+bot_restarted: Bot Restarted!

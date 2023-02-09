@@ -1,0 +1,24 @@
+name: 🇺🇿 Uzbek
+help: |
+  Mavjud buyruqlar: 
+
+  /start - 🚀 Botni ishga tushirish
+  /info - 🪄 Bot haqida ma'lumot
+  /language - 🌎 Tilni o'zgartirish
+
+  Adminlar:
+  @azad740
+  @donaterMILLI
+
+  Bot - @jodev7 tomonidan ishlab chiqilgan
+language: Iltimos, tilni tanlang.
+language_selected: <b>Bot</b> endi ozbek tilida gapiradi!.
+start: |
+  ✋ Salom ${username}
+
+  💥 Бомж Донатер & Глеб rasmiy uc xizmatiga Xush kelibsiz!
+  ✅ Eng arzon va ishonchli uc xizmati faqat bizda
+
+  👇 Sizga kerak bo'lgan xizmatni tanlang
+adminka: Admin Paneli
+bot_restarted: Bot qayta ishga tushdi!

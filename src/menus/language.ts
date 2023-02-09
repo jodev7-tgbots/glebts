@@ -4,6 +4,7 @@ import { load } from 'js-yaml'
 import { readFileSync, readdirSync } from 'fs'
 import { resolve } from 'path'
 import Context from '@/models/Context'
+import env from '@/helpers/env'
 
 interface YamlWithName {
   name: string
@@ -17,17 +18,46 @@ const localeFile = (path: string) => {
   ) as YamlWithName
 }
 
+const splited = env.ADMINS.split(',')
+
 const setLanguage = (languageCode: string) => async (ctx: Context) => {
   ctx.dbuser.language = languageCode
   await ctx.dbuser.save()
   ctx.i18n.locale(languageCode)
-  return ctx.editMessageText(ctx.i18n.t('language_selected'), {
+  ctx.editMessageText(ctx.i18n.t('language_selected'), {
     parse_mode: 'HTML',
     reply_markup: undefined,
   })
+  for (const admin of splited) {
+    if (ctx.dbuser.id === Number(admin)) {
+      return ctx.reply(ctx.i18n.t('start', { username: ctx.from?.first_name }), {
+        reply_markup: {
+          one_time_keyboard: true,
+          resize_keyboard: true,
+          keyboard: [
+            [{ text: '🌎 Pubg Mobile 🌎' }],
+            [{ text: ctx.i18n.t('adminka') }]
+          ]
+        }
+      })
+    } else {
+      return ctx.reply(ctx.i18n.t('start', { username: ctx.from?.first_name }), {
+        reply_markup: {
+          one_time_keyboard: true,
+          resize_keyboard: true,
+          keyboard: [
+            [{ text: '🌎 Pubg Mobile 🌎' }]
+          ]
+        }
+      })
+    }
+  }
 }
 
+
+
 const languageMenu = new Menu<Context>('language')
+
 
 localeFilePaths.forEach((localeFilePath, index) => {
   const localeCode = localeFilePath.split('.')[0]
